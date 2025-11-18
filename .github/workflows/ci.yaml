@@ -5,6 +5,9 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write  # Grant the permission the reusable workflow needs
+
 jobs:
   ci:
     uses: humanitec-tf-modules/reusable-workflows/.github/workflows/ci.yaml@main
