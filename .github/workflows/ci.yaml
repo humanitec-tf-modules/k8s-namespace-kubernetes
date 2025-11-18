@@ -1,0 +1,16 @@
+name: CI
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches: [ main ]
+
+jobs:
+  ci:
+    uses: humanitec-tf-modules/reusable-workflows/.github/workflows/ci.yaml@main
+    secrets: inherit
+    with:
+      disable-tf-format: false
+      disable-tf-validate: false
+      disable-tf-test: false
+      disable-tf-docs: false
