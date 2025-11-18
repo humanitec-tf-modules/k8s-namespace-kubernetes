@@ -22,13 +22,13 @@ run "namespace_with_name" {
     error_message = "generate_name should not be set"
   }
   assert {
-    condition     = jsonencode(kubernetes_namespace_v1.namespace.metadata[0].annotations) == jsonencode({
+    condition = jsonencode(kubernetes_namespace_v1.namespace.metadata[0].annotations) == jsonencode({
       name = "example-annotation"
     })
     error_message = "annotations should be set"
   }
   assert {
-    condition     = jsonencode(kubernetes_namespace_v1.namespace.metadata[0].labels) == jsonencode({
+    condition = jsonencode(kubernetes_namespace_v1.namespace.metadata[0].labels) == jsonencode({
       mylabel = "label-value"
     })
     error_message = "labels should be set"
@@ -57,13 +57,13 @@ run "namespace_with_name_prefix" {
     error_message = "name should be set to a random value"
   }
   assert {
-    condition     = jsonencode(kubernetes_namespace_v1.namespace.metadata[0].annotations) == jsonencode({
+    condition = jsonencode(kubernetes_namespace_v1.namespace.metadata[0].annotations) == jsonencode({
       name = "example-annotation"
     })
     error_message = "annotations should be set"
   }
   assert {
-    condition     = jsonencode(kubernetes_namespace_v1.namespace.metadata[0].labels) == jsonencode({
+    condition = jsonencode(kubernetes_namespace_v1.namespace.metadata[0].labels) == jsonencode({
       mylabel = "label-value"
     })
     error_message = "labels should be set"
