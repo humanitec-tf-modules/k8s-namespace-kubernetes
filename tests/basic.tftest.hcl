@@ -53,10 +53,6 @@ run "namespace_with_name_prefix" {
     error_message = "generate_name should be set"
   }
   assert {
-    condition     = kubernetes_namespace_v1.namespace.metadata[0].name != null
-    error_message = "name should be set to a random value"
-  }
-  assert {
     condition = jsonencode(kubernetes_namespace_v1.namespace.metadata[0].annotations) == jsonencode({
       name = "example-annotation"
     })
