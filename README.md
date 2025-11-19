@@ -54,8 +54,8 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_additional_annotations"></a> [additional\_annotations](#input\_additional\_annotations) | Additional annotations to add to the namespace. | `map(string)` | `{}` | no |
 | <a name="input_additional_labels"></a> [additional\_labels](#input\_additional\_labels) | Additional labels to add to the namespace. | `map(string)` | `{}` | no |
-| <a name="input_name"></a> [name](#input\_name) | The name of the namespace to create. Should not be set if name\_prefix is set. | `string` | `null` | no |
-| <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | The name prefix to use for generate\_name. Cannot be set if name is set. | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | The explicit name of the namespace to create. | `string` | `null` | no |
+| <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | The name prefix to use for generate\_name if name is not set. | `string` | `"ns-"` | no |
 
 ## Outputs
 
