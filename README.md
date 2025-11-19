@@ -1,4 +1,4 @@
-# TF module template repository
+# k8s-namespace-kubernetes
 
 This is a Terraform / OpenTofu compatible module to be used to provision `k8s-namespace` resources on top of Kubernetes for the Humanitec Orchestrator.
 
