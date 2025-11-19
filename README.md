@@ -17,7 +17,7 @@ Install this with the `hctl` CLI, you should replace the `CHANGEME` in the modul
 
 ```shell
 hctl create module \
-    --set=resource_type=score-workload \
+    --set=resource_type=k8s-namespace \
     --set=module_source=git::https://github.com/humanitec-tf-modules/k8s-namespace-kubernetes?ref=CHANGEME \
     --set=provider_mapping='{"kubernetes": "CHANGEME"}' \
     --set=module_inputs='{}'
