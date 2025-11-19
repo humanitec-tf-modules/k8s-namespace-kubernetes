@@ -13,17 +13,17 @@ This is a Terraform / OpenTofu compatible module to be used to provision `k8s-na
 
 ## Installation
 
-Install this with the `hctl` CLI, you should replace the `CHANGEME` in the module source with the latest release tag, replace the `CHANGEME` in the provider mapping with your real provider type and alias for Kubernetes; and replace the `CHANGEME` in module inputs with the real target namespace.
+Install this with the `hctl` CLI, you should replace the `CHANGEME` in the module source with the latest release tag, replace the `CHANGEME` in the provider mapping with your real provider type and alias for Kubernetes.
 
 ```shell
 hctl create module \
-    --set=resource_type=score-workload \
+    --set=resource_type=k8s-namespace \
     --set=module_source=git::https://github.com/humanitec-tf-modules/k8s-namespace-kubernetes?ref=CHANGEME \
     --set=provider_mapping='{"kubernetes": "CHANGEME"}' \
-    --set=module_inputs='{"name_prefix": "CHANGEME"}'
+    --set=module_inputs='{}'
 ```
 
-The above example sets the `name_prefix` to establish a pattern for the created namespaces, but you can also use any of the input parameters described further down this document to modify the behavior.
+The namespaces will be random with a "ns-" prefix by default. You should set the "name_prefix" module input if you wish to change this scheme (see the inputs section below).
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -54,8 +54,8 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_additional_annotations"></a> [additional\_annotations](#input\_additional\_annotations) | Additional annotations to add to the namespace. | `map(string)` | `{}` | no |
 | <a name="input_additional_labels"></a> [additional\_labels](#input\_additional\_labels) | Additional labels to add to the namespace. | `map(string)` | `{}` | no |
-| <a name="input_name"></a> [name](#input\_name) | The name of the namespace to create. Should not be set if name\_prefix is set. | `string` | `null` | no |
-| <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | The name prefix to use for generate\_name. Cannot be set if name is set. | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | The explicit name of the namespace to create. | `string` | `null` | no |
+| <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | The name prefix to use for generate\_name if name is not set. | `string` | `"ns-"` | no |
 
 ## Outputs
 

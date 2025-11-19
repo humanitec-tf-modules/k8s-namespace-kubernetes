@@ -1,12 +1,12 @@
-variable "name" {
-  type        = string
-  description = "The name of the namespace to create. Should not be set if name_prefix is set."
-  default     = null
-}
-
 variable "name_prefix" {
   type        = string
-  description = "The name prefix to use for generate_name. Cannot be set if name is set."
+  description = "The name prefix to use for generate_name if name is not set."
+  default     = "ns-"
+}
+
+variable "name" {
+  type        = string
+  description = "The explicit name of the namespace to create."
   default     = null
 }
 
