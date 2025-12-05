@@ -36,7 +36,7 @@ The namespaces will be random with a "ns-" prefix by default. You should set the
 
 | Name | Version |
 |------|---------|
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.38.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 3.0.0 |
 
 ## Modules
 
