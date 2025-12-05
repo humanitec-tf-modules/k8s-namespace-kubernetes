@@ -1,0 +1,12 @@
+name: Auto-assign issues and PRs
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  auto-assign:
+    uses: humanitec-tf-modules/reusable-workflows/.github/workflows/auto-assign.yml@main
+    secrets: inherit
