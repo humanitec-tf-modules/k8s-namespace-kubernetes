@@ -1,0 +1,7 @@
+# Do not show providers.
+# The versions that will be rendered into this block provide a snapshot only
+# based on the version constraints in the "required_providers" block
+# but are not useful information for module users.
+sections:
+  hide:
+    - providers
