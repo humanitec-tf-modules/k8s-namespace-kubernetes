@@ -64,7 +64,7 @@ hctl create module k8s-namespace \
     --set=module_inputs='{}'
 ```
 
-The namespaces will be random with a "ns-" prefix by default and if `name` is not set. You should set the `name_prefix` module input if you wish to change this scheme (see the [inputs](#inputs) section below).
+The namespaces will be randomly generated with an `ns-` prefix by default when `name` is not set. You should set the `name_prefix` module input if you wish to change this scheme (see the [inputs](#inputs) section below).
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
