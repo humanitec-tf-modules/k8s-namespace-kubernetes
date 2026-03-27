@@ -72,12 +72,6 @@ The namespaces will be random with a "ns-" prefix by default and if `name` is no
 |------|---------|
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 2.0.0 |
 
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 3.0.0 |
-
 ## Modules
 
 No modules.
