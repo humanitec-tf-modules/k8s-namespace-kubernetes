@@ -29,12 +29,12 @@ This is a Terraform / OpenTofu compatible module to be used to provision `k8s-na
     For CLI use:
 
     ```shell
-    hctl create resource-type k8s-namespace --set=description='Kubernetes Namespace' --set=output_schema='{"type":"object","required":["name"],"properties":{"name":{"type":"string"}}}'
+    hctl create resource-type k8s-namespace --set=description='Kubernetes namespace' --set=output_schema='{"type":"object","required":["name"],"properties":{"name":{"type":"string"}}}'
     ```
 
 ## Installation
 
-Install this with the `hctl` CLI, you should replace the `CHANGEME` in the module source with the latest release tag, replace the `CHANGEME` in the provider mapping with your real provider type and alias for Kubernetes.
+Install this module either using Terraform/OpenTofu or with the `hctl` CLI. You should replace the `CHANGEME` in the module source with the latest release tag, replace the `CHANGEME` in the provider mapping with your real provider type and alias for Kubernetes.
 
 An example module is shown below. You may choose to expose any of the [inputs](#inputs) as `module_params` or pre-populate them via `module_inputs`. For example, to enable users of the module to choose a name for the namespace, add `name` to the `module_params`.
 
