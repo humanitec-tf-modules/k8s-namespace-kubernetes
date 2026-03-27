@@ -21,6 +21,7 @@ This is a Terraform / OpenTofu compatible module to be used to provision `k8s-na
             type = "string"
           }
         }
+        required = ["name"]
       })
     }
     ```
