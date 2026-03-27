@@ -7,6 +7,26 @@ This is a Terraform / OpenTofu compatible module to be used to provision `k8s-na
 1. There must be a module provider setup for `kubernetes` (`hashicorp/kubernetes`).
 2. There must be a resource type setup for `k8s-namespace`, for example:
 
+    For Terraform/OpenTofu use:
+
+    ```hcl
+    resource "platform-orchestrator_resource_type" "k8s_namespace" {
+      id                      = "k8s-namespace"
+      description             = "Kubernetes namespace"
+      is_developer_accessible = true
+      output_schema = jsonencode({
+        type = "object"
+        properties = {
+          name = {
+            type = "string"
+          }
+        }
+      })
+    }
+    ```
+
+    For CLI use:
+
     ```shell
     hctl create resource-type k8s-namespace --set=description='Kubernetes Namespace' --set=output_schema='{"type":"object","required":["name"],"properties":{"name":{"type":"string"}}}'
     ```
@@ -15,15 +35,35 @@ This is a Terraform / OpenTofu compatible module to be used to provision `k8s-na
 
 Install this with the `hctl` CLI, you should replace the `CHANGEME` in the module source with the latest release tag, replace the `CHANGEME` in the provider mapping with your real provider type and alias for Kubernetes.
 
+An example module is shown below. You may choose to expose any of the [inputs](#inputs) as `module_params` or pre-populate them via `module_inputs`. For example, to enable users of the module to choose a name for the namespace, add `name` to the `module_params`.
+
+For Terraform/OpenTofu use:
+
+```hcl
+resource "platform-orchestrator_module" "k8s_namespace" {
+  id            = "k8s-namespace"
+  description   = "Kubernetes namespace"
+  resource_type = platform-orchestrator_resource_type.k8s_namespace.id
+  module_source = "git::https://github.com/humanitec-tf-modules/k8s-namespace-kubernetes?ref=CHANGEME"
+  provider_mapping = {
+    kubernetes = "CHANGEME"
+  }
+  module_params = {}
+  module_inputs = jsonencode({})
+}
+```
+
+For CLI use:
+
 ```shell
-hctl create module \
+hctl create module k8s-namespace \
     --set=resource_type=k8s-namespace \
     --set=module_source=git::https://github.com/humanitec-tf-modules/k8s-namespace-kubernetes?ref=CHANGEME \
     --set=provider_mapping='{"kubernetes": "CHANGEME"}' \
     --set=module_inputs='{}'
 ```
 
-The namespaces will be random with a "ns-" prefix by default. You should set the "name_prefix" module input if you wish to change this scheme (see the inputs section below).
+The namespaces will be random with a "ns-" prefix by default and if `name` is not set. You should set the `name_prefix` module input if you wish to change this scheme (see the [inputs](#inputs) section below).
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
